@@ -13,6 +13,6 @@ export class CardMovieComponent implements OnInit {
   ngOnInit(): void {
   }
   onClick(id: string){
-    sessionStorage.setItem('idMovie', id);        
+    
   }
 }

@@ -1,11 +1,16 @@
-<div class="mt-3 white-text">
-    <h1 routerLink="/" class="pe-auto">Movies App</h1>
+<div  class="mt-3 white-text">
+    <h1 routerLink="/movie" class="pe-auto">Movies App</h1>
     <ul class="list-group">
         <hr >
         <li class="lead" routerLink="/movie/popular">Peliculas Populares</li>        
-
         <hr>        
-        <li class="lead " routerLink="/movie/popular/">Busca por generos.</li>
+        <li class="lead " routerLink="/movie/popular/">Lista de generos.</li>
+        <hr>
+        <ng-container *ngFor="let genre of genres">
+            <small style="color:white;" routerLink="genre/{{genre.name}}">{{genre.name}}</small>
+            <hr>
+        </ng-container>
+        <li class="lead " (click)="onLogout()">Logout</li>
     </ul>
 </div>
 

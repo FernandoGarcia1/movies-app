@@ -1,25 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PrincipalComponent } from './components/modules/movies/pages/principal/principal.component';
-import { NotFoundComponent } from './components/shared/not-found/not-found.component';
+import { AuthComponent } from './components/modules/auth/auth/auth.component';
+import { AuthGuard } from './services/guards/auth.guard';
 
-const routes: Routes = [
-  {
-    path : '404',
-    component : NotFoundComponent
-  },  
+const routes: Routes = [  
   {
     path : 'movie',
     loadChildren: () => import('./components/modules/movies/pages.module').then(m => m.PagesModule),
+    canLoad: [AuthGuard],
+    canActivate:[AuthGuard],
   },
   {
     path : '',
-    component : PrincipalComponent,
+    component : AuthComponent,
     pathMatch : 'full'
   },
   {
     path : '**',
-    redirectTo : '404'
+    redirectTo : ''
   }
 
 ];

@@ -9,6 +9,8 @@ import { MoviesRoutingModule } from './movies-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchFormComponent } from './pages/principal/search-form/search-form.component';
+import { IndexComponent } from './pages/index/index.component';
+import { GeneresComponent } from './pages/generes/generes.component';
 
 
 
@@ -18,6 +20,8 @@ import { SearchFormComponent } from './pages/principal/search-form/search-form.c
     ShowMovieComponent,
     PrincipalComponent,
     SearchFormComponent,
+    IndexComponent,
+    GeneresComponent,
     
   ],
   imports: [
