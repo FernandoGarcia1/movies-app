@@ -1,0 +1,12 @@
+<div class="container-img color-text">
+<h1 class="text-center mt-2 top-img" style="color:white;">Movies App</h1>
+<img class="img-size" src="https://image.tmdb.org/t/p/original/{{movie?.backdrop_path}}" alt="First slide">
+<div class="centered-img " style="color:white;">
+    <p routerLink="/movie/movie/{{movie?.id}}">{{movie?.title}}...</p>
+</div>
+</div>
+
+<h2 class="text-center color-text">Busca tu pelicula Favorita</h2>
+
+<app-search-form (onSearchMovie)="onSearchMovie($event)"></app-search-form>
+<app-card-movie [movies]="movies"></app-card-movie>

@@ -1,0 +1,25 @@
+
+<div class="row mb-3">
+    <ng-container *ngFor="let movie of movies">
+        <div class="col-4 mt-3 ">
+            <div class="card mb-5" style="width: 23rem; height: 26rem;" >        
+                <img appImgOpacity class="card-img-top" src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title text-center">{{movie.title}}</h5>
+                <p class="card-text justify-text-card">{{movie.overview | textSmall}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item text-center"><small> Calificación:  {{movie.vote_average| stars}} </small></li>
+                <li class="list-group-item text-center"><small>Estreno: {{movie.release_date}}</small></li>          
+                <button appButtonColor routerLink="/movie/movie/{{movie.id}}" class="btn btn-primary">
+                    Ver mas...                        
+                </button>          
+                </ul>            
+            </div>
+        </div>
+    </ng-container>
+
+    <h2 class="text-center" style="color:white" *ngIf="movies.length===0">
+        Lo sentimos no encontramos peliculas relacionadas con tu busqueda.
+    </h2>
+</div>
