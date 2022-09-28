@@ -6,7 +6,7 @@ import { ShowMovieComponent } from './pages/show-movie/show-movie.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
 import { IndexComponent } from './pages/index/index.component';
 import { TmdbResolver } from 'src/app/libs/resolvers/tmdb.resolver';
-import { GeneresComponent } from './pages/generes/generes.component';
+
 
 
 const routes : Routes = [

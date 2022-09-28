@@ -7,7 +7,7 @@
         <li class="lead ">Lista de generos.</li>
         <hr>
         <ng-container *ngFor="let genre of genres">
-            <small style="color:white;" routerLink="genre/{{genre.name}}">{{genre.name}}</small>
+            <small style="color:white;" >{{genre.name}}</small>
             <hr>
         </ng-container>
         <li class="lead " (click)="onLogout()">Logout</li>

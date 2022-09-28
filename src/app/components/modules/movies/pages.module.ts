@@ -10,7 +10,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchFormComponent } from './pages/principal/search-form/search-form.component';
 import { IndexComponent } from './pages/index/index.component';
-import { GeneresComponent } from './pages/generes/generes.component';
+
 
 
 
@@ -21,7 +21,7 @@ import { GeneresComponent } from './pages/generes/generes.component';
     PrincipalComponent,
     SearchFormComponent,
     IndexComponent,
-    GeneresComponent,
+    
     
   ],
   imports: [
