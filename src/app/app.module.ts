@@ -5,11 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PagesModule } from './components/modules/movies/pages.module';
 
 import { SharedModule } from './components/shared/shared.module';
-import { AuthComponent } from './components/modules/auth/auth/auth.component';
-import { AuthModule } from './components/modules/auth/auth.module';
+
+import { AuthModule } from './components/auth/auth.module';
+import { PagesModule } from './components/movies/pages.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './components/shared/material.module';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +26,8 @@ import { AuthModule } from './components/modules/auth/auth.module';
     AuthModule,
     PagesModule,
     SharedModule,
+    MaterialModule,
+    BrowserAnimationsModule,    
     
   ],
   providers: [],

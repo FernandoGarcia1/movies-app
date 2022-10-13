@@ -1,0 +1,17 @@
+<mat-toolbar style="background-color: rgb(11, 11, 11);">
+    <button mat-icon-button (click)="onMenu(opened=!opened)">
+        <mat-icon style="color: white;">menu</mat-icon>
+    </button>
+    <h1 routerLink="/movie" style="width: 10%;">MoviesApp</h1>
+    <span class="spacer"></span>
+    <input type="text" class="form-control" [formControl]="searchMovie"
+        placeholder="Search movie" style="width: 15%;" />
+    <button mat-icon-button (click)="onSearchMovie()">
+        <mat-icon style="color: white;">search</mat-icon>                
+    </button>    
+    <button mat-icon-button>
+        <mat-icon style="color: white;">linear_scale</mat-icon>
+    </button>
+</mat-toolbar>
+
+

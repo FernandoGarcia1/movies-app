@@ -1,0 +1,11 @@
+<div style="overflow:visible; height:95vh;">        
+      <app-card-movie [movies]="listMovies" (page)="refreshNumberPage($event)" [numberPage]="page"></app-card-movie>          
+</div>
+<!--
+<ng-container *ngFor="let movie of listMovies; let i = index">
+  <mat-grid-tile>
+      <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}"
+          style="height:250px; margin-bottom: 50px;" >
+  </mat-grid-tile>
+</ng-container>
+-->

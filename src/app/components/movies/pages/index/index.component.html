@@ -1,0 +1,15 @@
+<div class="row">
+    <div>
+        <app-header (openMenu)="openMenu($event)"></app-header>
+        <div class="size-principal">
+            <mat-drawer-container class="example-container " style="height:90%">
+                <mat-drawer mode="side" [(opened)]="opened" class="sidebar">
+                    <app-sidebar height="90vh"></app-sidebar>
+                </mat-drawer>
+                <mat-drawer-content style=" background-color: black; ">
+                    <router-outlet></router-outlet>
+                </mat-drawer-content>
+            </mat-drawer-container>
+        </div>
+    </div>
+</div>

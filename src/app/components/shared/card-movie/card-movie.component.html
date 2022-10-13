@@ -1,25 +1,66 @@
-
-<div class="row mb-3">
-    <ng-container *ngFor="let movie of movies">
-        <div class="col-4 mt-3 ">
-            <div class="card mb-5" style="width: 23rem; height: 26rem;" >        
-                <img appImgOpacity class="card-img-top" src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="Card image cap">
-                <div class="card-body">
-                <h5 class="card-title text-center">{{movie.title}}</h5>
-                <p class="card-text justify-text-card">{{movie.overview | textSmall}}</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                <li class="list-group-item text-center"><small> Calificación:  {{movie.vote_average| stars}} </small></li>
-                <li class="list-group-item text-center"><small>Estreno: {{movie.release_date}}</small></li>          
-                <button appButtonColor routerLink="/movie/movie/{{movie.id}}" class="btn btn-primary">
-                    Ver mas...                        
-                </button>          
-                </ul>            
-            </div>
-        </div>
-    </ng-container>
-
+<div>
     <h2 class="text-center" style="color:white" *ngIf="movies?.length===0">
         Lo sentimos no encontramos peliculas relacionadas con tu busqueda.
     </h2>
+    <mat-grid-list [cols]="numberColumns" gutterSize="25px" rowHeight="700" style="margin-right: 7px; margin-left: 15px;">
+        <ng-container *ngFor="let movie of movies" >
+            <mat-grid-tile>
+                <div class="card-size">
+                    <mat-card class="movie-card">
+                        <mat-card-header>
+                            <mat-card-title>{{movie.title}}</mat-card-title>
+                        </mat-card-header>
+                        <img appImgOpacity mat-card-image src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}"
+                            alt="Movie's Poster">
+                        <mat-card-content>
+                            <p>{{movie.overview | textSmall}}</p>
+                        </mat-card-content>
+                        <mat-card-content>
+                            <p>Calificación: {{movie.vote_average| stars}}</p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button appButtonColor  mat-button routerLink="/movie/movie/{{movie.id}}">Ver mas</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </mat-grid-tile>
+        </ng-container>
+    </mat-grid-list>
+    
+    <div class="number-page" *ngIf="paginator">
+        <mat-icon class="icon" style="margin-right: 2rem;" (click)="previousPage()">arrow_back</mat-icon>
+        <h2 mat-mini-fab style="font-size: 2rem; color:rgb(220, 27, 27)" >{{numberPage}}</h2>
+        <ng-container *ngFor=" let number of [1,2,3,4,5]">            
+            <h2 mat-mini-fab style="font-size: 2rem;"  (click)="refreshNumberPage(number+numberPage)">
+                {{number+numberPage}}
+            </h2>
+        </ng-container>
+        
+        <mat-icon class="icon" style="margin-left: 2rem;" (click)="nextPage()">arrow_forward</mat-icon>
+    </div>
+
 </div>
+<!-- 
+<div class="row mb-3">
+    <ng-container *ngFor="let movie of movies">
+        <div class="col-4 mt-3 ">
+            <div class="card mb-5" style="width: 23rem; height: 26rem;">
+                <img appImgOpacity class="card-img-top"
+                    src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{movie.title}}</h5>
+                    <p class="card-text justify-text-card">{{movie.overview | textSmall}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-center"><small> Calificación: {{movie.vote_average| stars}} </small>
+                    </li>
+                    <li class="list-group-item text-center"><small>Estreno: {{movie.release_date}}</small></li>
+                    <button appButtonColor routerLink="/movie/movie/{{movie.id}}" class="btn btn-primary">
+                        Ver mas...
+                    </button>
+                </ul>
+            </div>
+        </div>
+    </ng-container>
+</div> 
+-->

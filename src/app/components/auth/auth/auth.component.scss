@@ -1,0 +1,58 @@
+.card-form {
+    background: #fbfbfb;
+    border-radius: 8px;
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+    height: 410px;
+    margin: 6rem auto 8.1rem auto;
+    width: 329px;
+}
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  .login-text{
+    text-align: center;
+    padding-top: 5%;
+    font-size: 3rem;
+    font-family: monospace;
+  }
+}
+
+.form-group{
+  margin-left: 8%;
+  margin-right: 8%;
+  
+  p{
+    margin-bottom: -4px;
+  }
+  input{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 18px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;    
+  }
+  button{
+    background-color: #5DDEAB;
+    border-radius: 15px;
+    color: rgb(79, 78, 78);
+    width: 100%;
+    height: 30px;
+    margin-top: 8%;
+    margin-bottom: 4%;
+    font-size: 1.2rem;
+  }
+  button:hover{
+    background-color: #FA7269;
+    color: black;
+  }  
+  small{    
+    font-size: 16px;
+    color:red;
+  }
+}
+
+

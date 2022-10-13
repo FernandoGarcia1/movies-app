@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -9,21 +9,26 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class SidebarComponent implements OnInit {
 
-  public genres: any;
+  public viewGenres: boolean = false;
+  public genres: any;  
   constructor(public authService: AuthService, private router: Router, public activatedRoute: ActivatedRoute){}
   
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(
-      data => {
-        console.log(data['genres'].genres.slice(0,10));
-        this.genres=data['genres'].genres.slice(0,10);
+      data => {        
+        this.genres=data['genres'].genres;
       }
     )
   }
-
   onLogout(){
     console.log("logout");
     this.authService.logout();
     this.router.navigate(['/']);
   }
+
+  onViewGenres(){
+    this.viewGenres= !this.viewGenres;
+    console.log("viewGenres",this.viewGenres);
+  }  
+  
 }

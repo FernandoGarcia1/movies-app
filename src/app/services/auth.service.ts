@@ -13,14 +13,16 @@ export class AuthService {
     if(username === 'admin' && password === 'admin'){
       this.auth = true;
       localStorage.setItem('movie-auth', 'true');      
+      return true;
     }else{
       this.auth = false;
       console.log(this.auth)
+      return false;
     }
   }
 
   logout(){
     this.auth = false;
-    localStorage.clear();
+    localStorage.removeItem('movie-auth');
   }
 }

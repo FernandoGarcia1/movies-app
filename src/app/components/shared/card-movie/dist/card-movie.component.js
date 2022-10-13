@@ -13,8 +13,6 @@ var CardMovieComponent = /** @class */ (function () {
     }
     CardMovieComponent.prototype.ngOnInit = function () {
     };
-    CardMovieComponent.prototype.onClick = function (id) {
-    };
     __decorate([
         core_1.Input()
     ], CardMovieComponent.prototype, "movies");
