@@ -26,20 +26,16 @@ export class PrincipalComponent implements OnInit {
 
   getNewMovies(){
     this.dataRequest.getNewMovies().subscribe({
-      next:(movies : Movie[]) =>{
-        console.log('Movies',movies)
-        this.newMovies = movies;        
-        
+      next:(movies : Movie[]) =>{        
+        this.newMovies = movies;                
       }
     })
   }
 
   getTrendingMovies(){
     this.dataRequest.getTrendingMovies().subscribe({
-      next:(movies : Movie[]) =>{
-        console.log('Movies',movies)
-        this.trendingMovies = movies;        
-        console.log('principal-new-movies',this.trendingMovies)
+      next:(movies : Movie[]) =>{        
+        this.trendingMovies = movies;                
       }
     })
   }
@@ -53,7 +49,9 @@ export class PrincipalComponent implements OnInit {
       }
     })
   }
-  
+
+
+
   
 
 }

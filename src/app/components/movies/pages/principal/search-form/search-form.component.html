@@ -1,7 +1,0 @@
-
-<form class="form-group" [formGroup]="searchForm" (submit)="searchMovie()">
-    <label for="" style="color:white;">Nombre de la pelicula</label>    
-    <input type="text" class="form-control" formControlName="title">
-    <label class="d-block p-2" *ngIf="searchForm.get('title')?.errors && searchForm.get('title')?.touched" style="color:white;">Campo requerido</label>    
-    <button  class="btn btn-primary mt-2 d.block" [disabled]="searchForm.invalid">Buscar Pelicula</button>
-</form>

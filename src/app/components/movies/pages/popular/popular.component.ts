@@ -25,8 +25,7 @@ export class PopularComponent implements OnInit {
     })
   }
   
-  refreshNumberPage(page: number){
-    console.log(this.page)
+  refreshNumberPage(page: number){    
     this.page = page;
     this.getPopularMovies();
   }

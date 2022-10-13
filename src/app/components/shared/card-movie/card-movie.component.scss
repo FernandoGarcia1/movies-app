@@ -9,7 +9,12 @@
             min-height: 3rem;
         }            
         img{            
-            height: 20rem;
+            min-height: 20rem;
+            max-height: 20rem;
+        }
+        .info{
+            min-height: 12.5rem;
+            max-height: 12.5rem;
         }
 }
 }

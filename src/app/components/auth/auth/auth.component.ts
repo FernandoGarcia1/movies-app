@@ -34,8 +34,8 @@ export class AuthComponent implements OnInit {
 
   formLoginGroup(){
     this.loginForm = new FormGroup({
-      username: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required])
+      username: new FormControl('', [Validators.required, Validators.minLength(4)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(4)])
     })
   }
 
@@ -43,15 +43,11 @@ export class AuthComponent implements OnInit {
     const USERNAME = this.loginForm.get("username")?.value
     const PASSWORD = this.loginForm.get("password")?.value    
     let authorization = this.authService.login(USERNAME, PASSWORD);
-    if( authorization){
-      console.log('auth', this.auth)
+    if( authorization){      
       this.auth = false;
-      this.router.navigate(['/movie']);
-      
-    }else{
-      console.log('auth', this.auth)
-      this.auth = true;
-      console.log('logeo falso')
+      this.router.navigate(['/movie']);      
+    }else{      
+      this.auth = true;      
     }    
   }
 

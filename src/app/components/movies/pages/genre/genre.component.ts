@@ -41,8 +41,7 @@ export class GenreComponent implements OnInit {
     })
   }
 
-  refreshNumberPage(page: number){
-    console.log(this.page)
+  refreshNumberPage(page: number){    
     this.page = page;
     this.getMoviesByGenre();
   }

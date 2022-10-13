@@ -7,6 +7,7 @@ import { LibsModule } from 'src/app/libs/libs.module';
 import { MaterialModule } from './material.module';
 import { HeaderComponent } from './header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HorizontalCardMovieComponent } from './horizontal-card-movie/horizontal-card-movie.component';
 
 
 
@@ -16,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SidebarComponent,
     CardMovieComponent,
     HeaderComponent,
+    HorizontalCardMovieComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     
     SidebarComponent,
     CardMovieComponent,
-    HeaderComponent
+    HeaderComponent,
+    HorizontalCardMovieComponent
   ]
 })
 export class SharedModule { }

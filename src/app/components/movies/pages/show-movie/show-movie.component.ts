@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Movie } from 'src/app/libs/interface/movie.interface';
 import { TmbdRequestService } from 'src/app/services/tmbd-request.service';
 
 @Component({
@@ -9,8 +10,9 @@ import { TmbdRequestService } from 'src/app/services/tmbd-request.service';
 })
 export class ShowMovieComponent implements OnInit {
 
-  public movie: any;  
-  constructor(public tmbdRequest : TmbdRequestService, public activatedRoute : ActivatedRoute ) { }
+  public movie!: Movie;  
+  public similarMovies: Movie[]=[];  
+  constructor(public dataRequest : TmbdRequestService, public activatedRoute : ActivatedRoute ) { }
   public flagDescription: boolean = false;
 
   ngOnInit(): void {
@@ -23,14 +25,24 @@ export class ShowMovieComponent implements OnInit {
   }
 
   getMovie(id : string){
-    this.tmbdRequest.getMovie(id).subscribe({
-      next:(resp : any) =>{
+    this.dataRequest.getMovie(id).subscribe({
+      next:(resp : Movie) =>{
        this.movie=resp;           
-       console.log(this.movie);   
+       this.getSimilarMovies();       
        if(this.movie.overview !== ''){
         this.flagDescription = true;
        }
       }
     })
+  }
+
+  getSimilarMovies(){
+    this.dataRequest.getSimilarMovies(this.movie.id).subscribe(
+      {
+        next:(resp : Movie[]) =>{
+          this.similarMovies = resp.splice(0,10);            
+        }
+    }
+    )
   }
 }

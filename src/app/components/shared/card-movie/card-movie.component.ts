@@ -26,10 +26,7 @@ export class CardMovieComponent implements OnInit {
       this.paginator = false;
     }
     
-  }  
-  onScroll(event: any){
-    console.log('Oncroll',event);
-  }
+  }    
 
   previousPage(){
     if(this.numberPage>1){

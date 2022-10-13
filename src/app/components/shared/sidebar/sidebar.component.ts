@@ -19,16 +19,10 @@ export class SidebarComponent implements OnInit {
         this.genres=data['genres'].genres;
       }
     )
-  }
-  onLogout(){
-    console.log("logout");
-    this.authService.logout();
-    this.router.navigate(['/']);
-  }
+  }  
 
   onViewGenres(){
-    this.viewGenres= !this.viewGenres;
-    console.log("viewGenres",this.viewGenres);
+    this.viewGenres= !this.viewGenres;    
   }  
   
 }

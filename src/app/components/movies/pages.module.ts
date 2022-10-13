@@ -8,13 +8,12 @@ import { PrincipalComponent } from './pages/principal/principal.component';
 import { MoviesRoutingModule } from './movies-routing.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { SearchFormComponent } from './pages/principal/search-form/search-form.component';
 import { IndexComponent } from './pages/index/index.component';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../shared/material.module';
 import { GenreComponent } from './pages/genre/genre.component';
-import { HorizontalCardMovieComponent } from './pages/principal/horizontal-card-movie/horizontal-card-movie.component';
 import { SearchMovieComponent } from './pages/search-movie/search-movie.component';
+import { CarrouselComponent } from './pages/principal/carrousel/carrousel.component';
 
 
 
@@ -23,12 +22,11 @@ import { SearchMovieComponent } from './pages/search-movie/search-movie.componen
   declarations: [
     PopularComponent,
     ShowMovieComponent,
-    PrincipalComponent,
-    SearchFormComponent,
+    PrincipalComponent,    
     IndexComponent,
-    GenreComponent,
-    HorizontalCardMovieComponent,
+    GenreComponent,    
     SearchMovieComponent,
+    CarrouselComponent,
     
     
   ],

@@ -1,22 +1,23 @@
-<div class="row" style="overflow:visible; height:95vh;">
+<div class="row container-center" style="overflow:visible; height:95vh;">
     <div class="col-5 mt-4">
-        <img class="img-fluid" style="height: 500px;" src="https://image.tmdb.org/t/p/original/{{movie?.backdrop_path}}" alt="Card image cap">
+        <img class="img-fluid" style="height: 50vh; width:20vw" src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}" alt="Card image cap">
     </div>
     <div class="col-6 mt-4">
-        <h2 class="text-center" style="color:white;">{{movie?.title}}</h2>
-        <h3 class="text-center" style="color:white;">{{movie?.tagline}}</h3>
+        <h2 class="text-center" style="color:white;">{{movie.title | uppercase}}</h2>
+        <h3 class="text-center" style="color:white;">{{movie.tagline}}</h3>
         <div *ngIf="flagDescription ; else withDescription">
-        <p class="lead" style="color:white;">{{movie?.overview}}</p>
+        <p class="lead" style="color:white;">{{movie.overview}}</p>
         </div>
         <ng-template #withDescription>
             <p class="lead" style="color:white;">Lo sentimos no tenemos una descripción para esta pelicula.</p>
         </ng-template>
-        <p style="color:white;">Fecha de estreno: {{movie?.release_date}}</p><p style="color:white;">Calificación {{movie?.vote_average | number : '1.2-2'}}</p>
-        
+        <p style="color:white;">Fecha de estreno: {{movie.release_date}}</p><p style="color:white;">Calificación {{movie.vote_average | number : '1.2-2'}}</p>        
         <p style="color:white;"> Generos:
         <ng-container *ngFor="let genres of movie?.genres">
         {{genres.name}}.
         </ng-container>
-    </p>
+        <p>Peliculas Similares:</p>
+        <a *ngIf="movie.homepage !== ''" href="{{movie.homepage}}" target="_blank" rel="noopener noreferrer">Ver ahora </a>
+        <app-horizontal-card-movie [movies]="similarMovies"></app-horizontal-card-movie>
     </div>
 </div>
