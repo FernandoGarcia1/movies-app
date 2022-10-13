@@ -12,13 +12,13 @@ const routes: Routes = [
     canActivate:[AuthGuard],
   },
   {
-    path : '',
+    path : 'admin',
     component : AuthComponent,
     pathMatch : 'full'
   },
   {
     path : '**',
-    redirectTo : ''
+    redirectTo : 'admin'
   }
 
 ];

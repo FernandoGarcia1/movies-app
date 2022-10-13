@@ -41,8 +41,7 @@ export class HeaderComponent implements OnInit {
         .subscribe(res=> {                    
           this.dataRequest.searchMovies(res).subscribe({
             next:(movies : Movie[]) =>{
-              this.movies = movies.splice(0,5);
-              console.log(this.movies)
+              this.movies = movies.splice(0,5);              
              }
           })        
         })

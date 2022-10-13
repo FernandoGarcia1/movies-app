@@ -15,8 +15,7 @@ export class AuthService {
       localStorage.setItem('movie-auth', 'true');      
       return true;
     }else{
-      this.auth = false;
-      console.log(this.auth)
+      this.auth = false;      
       return false;
     }
   }

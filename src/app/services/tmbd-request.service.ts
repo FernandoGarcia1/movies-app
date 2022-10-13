@@ -17,7 +17,7 @@ export class TmbdRequestService {
 
   getPopularMovies(page: number){
     return this.http.get(
-      `${Constants.API_URL}${ApiEndpoints.NEW_MOVIES}?api_key=${this._apiKey}&language=es&page=1${page}`
+      `${Constants.API_URL}${ApiEndpoints.NEW_MOVIES}?page=${page}`
     ).pipe(
       map((movies : any) => {        
         return movies
@@ -27,13 +27,13 @@ export class TmbdRequestService {
 
   getMovie(id: string): Observable<Movie> {    
     return this.http.get<Movie>(
-      `${Constants.API_URL}${ApiEndpoints.MOVIE}/${id}?api_key=${this._apiKey}&language=es&language=es&page=1&include_adult=false`
+      `${Constants.API_URL}${ApiEndpoints.MOVIE}/${id}?page=1`
     )
   }
 
   searchMovies(search: string): Observable <Movie[]>{
     return this.http.get<Movie[]>(
-      `${Constants.API_URL}search/movie?api_key=${this._apiKey}&language=es&query=${search}&page=1&include_adult=false`
+      `${Constants.API_URL}search/movie?query=${search}&page=1`
     ).pipe(
       map((movies : any) => {        
         return movies.results
@@ -42,12 +42,12 @@ export class TmbdRequestService {
   }
   getMoviesGenres(genre: string, page: number): Observable<Genre>{
     return this.http.get<Genre>(
-      `${Constants.API_URL}${ApiEndpoints.MOVIE_GENRES}?api_key=${this._apiKey}&language=es-MX&with_genres=${genre}&page=${page}` 
+      `${Constants.API_URL}${ApiEndpoints.MOVIE_GENRES}?with_genres=${genre}&page=${page}` 
     )
   }
 
   getNewMovies(): Observable <Movie[]>{
-    return this.http.get<Movie[]>(`${Constants.API_URL}${ApiEndpoints.NEW_MOVIES}?api_key=${this._apiKey}`)
+    return this.http.get<Movie[]>(`${Constants.API_URL}${ApiEndpoints.NEW_MOVIES}`)
     .pipe(
       map((movies : any) => {        
         return movies.results
@@ -56,7 +56,7 @@ export class TmbdRequestService {
   }
 
   getTrendingMovies(): Observable<Movie[]>{
-    return this.http.get<Movie[]>(`${Constants.API_URL}${ApiEndpoints.TRENDING_MOVIES}?api_key=${this._apiKey}`)
+    return this.http.get<Movie[]>(`${Constants.API_URL}${ApiEndpoints.TRENDING_MOVIES}`)
     .pipe(
       map((movies : any) => {        
         return movies.results
@@ -65,7 +65,7 @@ export class TmbdRequestService {
   }
 
   getSimilarMovies(id: number) : Observable<Movie[]>{
-    return this.http.get<Movie[]>(`${Constants.API_URL}${ApiEndpoints.getSimilarMovies(id)}?api_key=${this._apiKey}`)
+    return this.http.get<Movie[]>(`${Constants.API_URL}${ApiEndpoints.getSimilarMovies(id)}`)
     .pipe(
       map((movies : any) => {        
         return movies.results

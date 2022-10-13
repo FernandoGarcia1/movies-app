@@ -14,15 +14,12 @@ export class AuthComponent implements OnInit {
   public loginForm!: FormGroup;
   public auth: boolean = false;
 
-  constructor(public authService: AuthService, private router: Router ){
-    console.group('service: ', this.authService)
-    
+  constructor(public authService: AuthService, private router: Router ){       
     
   }
 
   
-  ngOnInit(): void {
-
+  ngOnInit(): void {    
     this.formLoginGroup();
     this.inputChanged()
     const PREVIEW_LOGIN = localStorage.getItem('movie-auth');

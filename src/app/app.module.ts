@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,6 +12,7 @@ import { AuthModule } from './components/auth/auth.module';
 import { PagesModule } from './components/movies/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './components/shared/material.module';
+import { ParamsInterceptor } from './services/interceptors/params.interceptor';
 
 
 @NgModule({
@@ -30,7 +31,11 @@ import { MaterialModule } from './components/shared/material.module';
     BrowserAnimationsModule,    
     
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: ParamsInterceptor, multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

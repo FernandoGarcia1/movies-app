@@ -1,3 +1,6 @@
+#Compilado
+ng build --configuration production --base-href /app/
+
 # MoviesApp
 Username:admin
 Password:admin
